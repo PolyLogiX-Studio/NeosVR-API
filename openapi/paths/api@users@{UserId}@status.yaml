@@ -1,6 +1,7 @@
 summary: User Status Endpoint
 description: User Status Endpoint
 get:
+  summary: Get the status of a user
   security: []
   tags:
     - User Status
@@ -20,6 +21,7 @@ get:
           schema:
             $ref: '../components/schemas/UserStatus.yml'
 put:
+  summary: Update a user status
   security:
     - neosAuth:
         - write

@@ -68,15 +68,6 @@ components:
           type: boolean
         outputDevice:
           $ref: '#/components/schemas/OutputDevice'
-    sessionAccessLevel:
-      type: string
-      enum:
-        - Private
-        - LAN
-        - Friends
-        - FriendsOfFriends
-        - RegisteredUsers
-        - Anyone
     SessionInfo:
       type: object
       properties:
@@ -166,7 +157,7 @@ components:
           type: string
           format: date-time
         accessLevel:
-          $ref: '#/components/schemas/sessionAccessLevel'
+          $ref: '#/components/schemas/SessionAccessLevel'
     UserStatus:
       type: object
       properties:
@@ -208,6 +199,7 @@ paths:
     summary: User Status Endpoint
     description: User Status Endpoint
     get:
+      summary: Get the status of a user
       security: []
       tags:
         - User Status
@@ -227,6 +219,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserStatus'
     put:
+      summary: Update a user status
       security:
         - neosAuth:
             - write

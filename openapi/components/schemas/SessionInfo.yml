@@ -85,5 +85,4 @@ properties:
     type: string
     format: date-time
   accessLevel:
-    $ref: './sessionAccessLevel.yml'
-  
+    $ref: './SessionAccessLevel.yml'
