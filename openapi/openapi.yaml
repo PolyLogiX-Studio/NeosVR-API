@@ -18,4 +18,4 @@ security:
   - neosAuth: []
 paths:
   '/api/users/{UserId}/status':
-    $ref: 'paths\api@users@{UserId}@status.yaml'
+    $ref: 'paths/api@users@{UserId}@status.yaml'
