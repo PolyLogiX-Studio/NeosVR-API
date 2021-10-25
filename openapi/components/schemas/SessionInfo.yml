@@ -1,0 +1,89 @@
+type: object
+properties:
+  name:
+    type: string
+    example: Beach Bum's Paradice! (With A MacDonalds)
+  description:
+    type: string
+    example: null
+  correspondingWorldId:
+    $ref: './RecordId.yml'
+  tags:
+    type: array
+    items:
+      type: string
+      example: 'world'
+  sessionId:
+    type: string
+    example: S-f4981eeb-67ce-43e6-83bc-272010d51ae4
+  normalizedSessionId:
+    type: string
+    example: s-f4981eeb-67ce-43e6-83bc-272010d51ae4
+    readOnly: true
+  hostUserId:
+    type: string
+    example: U-bombitmanbomb
+  hostMachineId:
+    type: string
+  hostUsername:
+    type: string
+    example: bombitmanbomb
+  compatibilityHash:
+    type: string
+    example: VRk5owzoWaGQFaNQbKGUJw==
+  universeId:
+    type: string
+  neosVersion:
+    type: string
+    example: '2021.10.11.1175'
+  headlessHost:
+    type: boolean
+  sessionURLs:
+    type: array
+    items:
+      type: string
+      example: "lnl-nat:///S-f4981eeb-67ce-43e6-83bc-272010d51ae4"
+  parentSessionIds:
+    type: array
+    items:
+      type: string
+  nestedSessionIds:
+    type: array
+    items:
+      type: string
+  sessionUsers:
+    type: array
+    items:
+      $ref: './SessionUser.yml'
+  thumbnail:
+    type: string
+    example: 'https://operationaldata.neos.com/thumbnails/03b4223f-0b73-4f04-b95a-f6a9c93efea7-v2.webp'
+  joinedUsers:
+    type: integer
+    format: int32
+  activeUsers:
+    type: integer
+    format: int32
+  totalJoinedUsers:
+    type: integer
+    format: int32
+  totalActiveUsers:
+    type: integer
+    format: int32
+  maxUsers:
+    type: integer
+    format: int32
+  mobileFriendly:
+    type: boolean
+  sessionBeginTime:
+    type: string
+    format: date-time
+  lastUpdate:
+    type: string
+    format: date-time
+  awaySince:
+    type: string
+    format: date-time
+  accessLevel:
+    $ref: './sessionAccessLevel.yml'
+  

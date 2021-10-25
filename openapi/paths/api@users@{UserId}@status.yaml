@@ -1,0 +1,40 @@
+summary: User Status Endpoint
+description: User Status Endpoint
+get:
+  security: []
+  tags:
+    - User Status
+  parameters:
+    - name: UserId
+      in: path
+      required: true
+      description: ID of the User
+      schema:
+        type: string
+        example: U-bombitmanbomb
+  responses:
+    '200':
+      description: Success!
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/UserStatus.yml'
+put:
+  security:
+    - neosAuth:
+        - write
+  tags:
+    - User Status
+  parameters:
+    - name: UserId
+      in: path
+      required: true
+      description: ID of the User
+      schema:
+        type: string
+        example: U-bombitmanbomb
+  responses:
+    '200':
+      description: Success!
+    '403':
+      description: Forbidden!

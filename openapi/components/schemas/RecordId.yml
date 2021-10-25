@@ -1,0 +1,11 @@
+type: object
+properties:
+  recordId:
+    type: string
+    example: R-6b26b0e4-95b0-4ff9-bc24-5efd791e8b4c
+  ownerId:
+    type: string
+    example: U-h33t
+required:
+ - recordId
+ - ownerId

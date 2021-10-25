@@ -1,0 +1,33 @@
+type: object
+properties:
+  onlineStatus:
+    $ref: './OnlineStatus.yml'
+  lastStatusChange:
+    type: string
+    format: date-time
+  currentSessionId:
+    type: string
+    example: 'S-f4981eeb-67ce-43e6-83bc-272010d51ae4'
+  currentSessionAccessLevel:
+    $ref: './SessionAccessLevel.yml'
+  currentSessionHidden:
+    type: boolean
+  currentHosting:
+    type: boolean
+  compatibilityHash:
+    type: string
+    example: VRk5owzoWaGQFaNQbKGUJw==
+  neosVersion:
+    type: string
+    example: 2021.10.11.1175
+  publicRSAKey:
+    type: string
+  outputDevice:
+    $ref: './OutputDevice.yml'
+  isMobile:
+    type: boolean
+  activeSessions:
+    type: array
+    uniqueItems: true
+    items:
+      $ref: './SessionInfo.yml'

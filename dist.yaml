@@ -1,0 +1,247 @@
+openapi: 3.0.3
+info:
+  title: NeosVR API
+  description: API Documentation for NeosVR
+  version: '2.0'
+  contact:
+    name: Neos
+    url: https://neos.com/
+  license:
+    name: MIT
+servers:
+  - url: https://api.neos.com
+components:
+  securitySchemes:
+    neosAuth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Neos Authentication Token (neos UserID:SessionToken)
+  schemas:
+    OnlineStatus:
+      type: string
+      enum:
+        - Offline
+        - Invisible
+        - Away
+        - Busy
+        - Online
+    SessionAccessLevel:
+      type: string
+      enum:
+        - Private
+        - LAN
+        - Friends
+        - FriendsOfFriends
+        - RegisteredUsers
+        - Anyone
+    OutputDevice:
+      type: string
+      enum:
+        - Unknown
+        - Headless
+        - Screen
+        - VR
+        - Camera
+    RecordId:
+      type: object
+      properties:
+        recordId:
+          type: string
+          example: R-6b26b0e4-95b0-4ff9-bc24-5efd791e8b4c
+        ownerId:
+          type: string
+          example: U-h33t
+      required:
+        - recordId
+        - ownerId
+    SessionUser:
+      type: object
+      properties:
+        username:
+          type: string
+          example: bombitmanbomb
+        userID:
+          type: string
+          example: U-bombitmanbomb
+        isPresent:
+          type: boolean
+        outputDevice:
+          $ref: '#/components/schemas/OutputDevice'
+    sessionAccessLevel:
+      type: string
+      enum:
+        - Private
+        - LAN
+        - Friends
+        - FriendsOfFriends
+        - RegisteredUsers
+        - Anyone
+    SessionInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Beach Bum's Paradice! (With A MacDonalds)
+        description:
+          type: string
+          example: null
+        correspondingWorldId:
+          $ref: '#/components/schemas/RecordId'
+        tags:
+          type: array
+          items:
+            type: string
+            example: world
+        sessionId:
+          type: string
+          example: S-f4981eeb-67ce-43e6-83bc-272010d51ae4
+        normalizedSessionId:
+          type: string
+          example: s-f4981eeb-67ce-43e6-83bc-272010d51ae4
+          readOnly: true
+        hostUserId:
+          type: string
+          example: U-bombitmanbomb
+        hostMachineId:
+          type: string
+        hostUsername:
+          type: string
+          example: bombitmanbomb
+        compatibilityHash:
+          type: string
+          example: VRk5owzoWaGQFaNQbKGUJw==
+        universeId:
+          type: string
+        neosVersion:
+          type: string
+          example: 2021.10.11.1175
+        headlessHost:
+          type: boolean
+        sessionURLs:
+          type: array
+          items:
+            type: string
+            example: lnl-nat:///S-f4981eeb-67ce-43e6-83bc-272010d51ae4
+        parentSessionIds:
+          type: array
+          items:
+            type: string
+        nestedSessionIds:
+          type: array
+          items:
+            type: string
+        sessionUsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SessionUser'
+        thumbnail:
+          type: string
+          example: >-
+            https://operationaldata.neos.com/thumbnails/03b4223f-0b73-4f04-b95a-f6a9c93efea7-v2.webp
+        joinedUsers:
+          type: integer
+          format: int32
+        activeUsers:
+          type: integer
+          format: int32
+        totalJoinedUsers:
+          type: integer
+          format: int32
+        totalActiveUsers:
+          type: integer
+          format: int32
+        maxUsers:
+          type: integer
+          format: int32
+        mobileFriendly:
+          type: boolean
+        sessionBeginTime:
+          type: string
+          format: date-time
+        lastUpdate:
+          type: string
+          format: date-time
+        awaySince:
+          type: string
+          format: date-time
+        accessLevel:
+          $ref: '#/components/schemas/sessionAccessLevel'
+    UserStatus:
+      type: object
+      properties:
+        onlineStatus:
+          $ref: '#/components/schemas/OnlineStatus'
+        lastStatusChange:
+          type: string
+          format: date-time
+        currentSessionId:
+          type: string
+          example: S-f4981eeb-67ce-43e6-83bc-272010d51ae4
+        currentSessionAccessLevel:
+          $ref: '#/components/schemas/SessionAccessLevel'
+        currentSessionHidden:
+          type: boolean
+        currentHosting:
+          type: boolean
+        compatibilityHash:
+          type: string
+          example: VRk5owzoWaGQFaNQbKGUJw==
+        neosVersion:
+          type: string
+          example: 2021.10.11.1175
+        publicRSAKey:
+          type: string
+        outputDevice:
+          $ref: '#/components/schemas/OutputDevice'
+        isMobile:
+          type: boolean
+        activeSessions:
+          type: array
+          uniqueItems: true
+          items:
+            $ref: '#/components/schemas/SessionInfo'
+security:
+  - neosAuth: []
+paths:
+  /api/users/{UserId}/status:
+    summary: User Status Endpoint
+    description: User Status Endpoint
+    get:
+      security: []
+      tags:
+        - User Status
+      parameters:
+        - name: UserId
+          in: path
+          required: true
+          description: ID of the User
+          schema:
+            type: string
+            example: U-bombitmanbomb
+      responses:
+        '200':
+          description: Success!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStatus'
+    put:
+      security:
+        - neosAuth:
+            - write
+      tags:
+        - User Status
+      parameters:
+        - name: UserId
+          in: path
+          required: true
+          description: ID of the User
+          schema:
+            type: string
+            example: U-bombitmanbomb
+      responses:
+        '200':
+          description: Success!
+        '403':
+          description: Forbidden!

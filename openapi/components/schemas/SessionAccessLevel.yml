@@ -1,0 +1,8 @@
+type: string
+enum:
+  - Private
+  - LAN
+  - Friends
+  - FriendsOfFriends
+  - RegisteredUsers
+  - Anyone
