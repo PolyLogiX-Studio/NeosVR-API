@@ -6,13 +6,7 @@ get:
   tags:
     - User Status
   parameters:
-    - name: UserId
-      in: path
-      required: true
-      description: ID of the User
-      schema:
-        type: string
-        example: U-bombitmanbomb
+    - $ref: '../components/parameters/UserID.yml'
   responses:
     '200':
       description: Success!
@@ -20,6 +14,9 @@ get:
         application/json:
           schema:
             $ref: '../components/schemas/UserStatus.yml'
+    '404':
+      $ref: '../components/responses/404.yml'
+
 put:
   summary: Update a user status
   security:
@@ -28,13 +25,7 @@ put:
   tags:
     - User Status
   parameters:
-    - name: UserId
-      in: path
-      required: true
-      description: ID of the User
-      schema:
-        type: string
-        example: U-bombitmanbomb
+    - $ref: '../components/parameters/UserID.yml'
   responses:
     '200':
       description: Success!

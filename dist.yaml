@@ -17,6 +17,15 @@ components:
       name: Authorization
       in: header
       description: Neos Authentication Token (neos UserID:SessionToken)
+  parameters:
+    UserID:
+      name: UserId
+      in: path
+      required: true
+      description: ID of the User
+      schema:
+        type: string
+        example: U-bombitmanbomb
   schemas:
     OnlineStatus:
       type: string
@@ -192,6 +201,24 @@ components:
           uniqueItems: true
           items:
             $ref: '#/components/schemas/SessionInfo'
+  responses:
+    '404':
+      description: Not Found!
+      content:
+        application/problem+json:
+          schema:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+                example: Not Found
+              status:
+                type: integer
+                example: 404
+              traceId:
+                type: string
 security:
   - neosAuth: []
 paths:
@@ -204,13 +231,7 @@ paths:
       tags:
         - User Status
       parameters:
-        - name: UserId
-          in: path
-          required: true
-          description: ID of the User
-          schema:
-            type: string
-            example: U-bombitmanbomb
+        - $ref: '#/components/parameters/UserID'
       responses:
         '200':
           description: Success!
@@ -218,6 +239,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserStatus'
+        '404':
+          $ref: '#/components/responses/404'
     put:
       summary: Update a user status
       security:
@@ -226,13 +249,7 @@ paths:
       tags:
         - User Status
       parameters:
-        - name: UserId
-          in: path
-          required: true
-          description: ID of the User
-          schema:
-            type: string
-            example: U-bombitmanbomb
+        - $ref: '#/components/parameters/UserID'
       responses:
         '200':
           description: Success!
