@@ -21,6 +21,18 @@ info:
 
     All rated endpoints have the following headers to denote various info about it's limits:
 
+    | Header | Type | Example | Description |
+    | ------ | ------ | ------ | ------ |
+    | X-Rate-Limit-Limit | `String` | 1m | How long the Rate limit lasts in Human Readable format. |
+    | X-Rate-Limit-Remaining | `Integer` | 10 | Amount of calls remaining before the server starts responding with code `429`. |
+    | X-Rate-Limit-Reset | `String <Date-Time>` | 2021-10-26T04:01:32.0523331Z | DateTime when `X-Rate-Limit-Remaining` Resets. |
+
+    If the quota is Exceeded `429 - Too Many Requests` will be received with info on when you can attempt to call the api again.
+
+    | Header | Type | Example | Description |
+    | ------ | ------ | ------ | ------ |
+    | Retry-After | `Integer` | 16 | Indicates how many seconds to wait before making a follow-up request |
+
   version: '2.0'
   contact:
     name: Support and Contributing
