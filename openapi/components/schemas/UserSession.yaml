@@ -1,0 +1,17 @@
+type: object
+properties:
+  userId:
+    type: string
+    example: U-bombitmanbomb
+  token:
+    type: string
+  created:
+    type: string
+    format: date-time
+  expire:
+    type: string
+    format: date-time
+  secretMachineId:
+    type: string
+  rememberMe:
+    type: boolean

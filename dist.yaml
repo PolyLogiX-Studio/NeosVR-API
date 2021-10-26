@@ -4,10 +4,11 @@ info:
   description: API Documentation for NeosVR
   version: '2.0'
   contact:
-    name: Neos
-    url: https://neos.com/
+    name: Contribute to the Docs
+    url: https://github.com/PolyLogiX-Studio/NeosVR-API/
   license:
     name: MIT
+    url: https://opensource.org/licenses/MIT
 servers:
   - url: https://api.neos.com
 components:
@@ -16,7 +17,9 @@ components:
       type: apiKey
       name: Authorization
       in: header
-      description: Neos Authentication Token (neos UserID:SessionToken)
+      description: >
+        Neos Authentication Token<br>**Format:** `"Authorization": "neos
+        UserID:SessionToken"`
   parameters:
     UserID:
       name: UserId
@@ -26,6 +29,7 @@ components:
       schema:
         type: string
         example: U-bombitmanbomb
+        pattern: ^U-.+$
   schemas:
     OnlineStatus:
       type: string
@@ -57,9 +61,12 @@ components:
       properties:
         recordId:
           type: string
+          pattern: >-
+            ^R-[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$
           example: R-6b26b0e4-95b0-4ff9-bc24-5efd791e8b4c
         ownerId:
           type: string
+          pattern: ^U-.+$
           example: U-h33t
       required:
         - recordId
@@ -201,9 +208,105 @@ components:
           uniqueItems: true
           items:
             $ref: '#/components/schemas/SessionInfo'
+    UsernameLoginCredentials:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+          format: password
+        totp:
+          type: string
+          description: Two Factor Authentication
+        secretMachineId:
+          type: string
+          description: On Null will log out any other sessions
+        rememberMe:
+          type: boolean
+          default: false
+      required:
+        - username
+        - password
+    UserIDLoginCredentials:
+      type: object
+      properties:
+        ownerId:
+          type: string
+          format: UserID
+          pattern: ^U-.+$
+          description: User ID
+        password:
+          type: string
+          format: password
+        totp:
+          type: string
+          description: Two Factor Authentication
+        secretMachineId:
+          type: string
+          description: On Null will log out any other sessions
+        rememberMe:
+          type: boolean
+          default: false
+      required:
+        - ownerId
+        - password
+    EmailLoginCredentials:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+        totp:
+          type: string
+          description: Two Factor Authentication
+        secretMachineId:
+          type: string
+          description: On Null will log out any other sessions
+        rememberMe:
+          type: boolean
+          default: false
+      required:
+        - email
+        - password
+    PasswordChangeCredentials:
+      type: object
+      properties:
+        password:
+          type: string
+          format: password
+        recoverCode:
+          type: string
+          description: >
+            Recovery Code received from [Reset Password](#tag/User-Status)<br>
+            Used with __password__ to set a new account password.
+          example: M0OIUzkS02KBUh==
+    UserSession:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: U-bombitmanbomb
+        token:
+          type: string
+        created:
+          type: string
+          format: date-time
+        expire:
+          type: string
+          format: date-time
+        secretMachineId:
+          type: string
+        rememberMe:
+          type: boolean
   responses:
+    '403':
+      description: Forbidden
     '404':
-      description: Not Found!
+      description: Not Found
       content:
         application/problem+json:
           schema:
@@ -224,17 +327,18 @@ security:
 paths:
   /api/users/{UserId}/status:
     summary: User Status Endpoint
-    description: User Status Endpoint
     get:
-      summary: Get the status of a user
+      summary: Get User Status
+      description: DESCRIPTION
       security: []
+      operationId: getUserStatus
       tags:
         - User Status
       parameters:
         - $ref: '#/components/parameters/UserID'
       responses:
         '200':
-          description: Success!
+          description: OK
           content:
             application/json:
               schema:
@@ -245,13 +349,70 @@ paths:
       summary: Update a user status
       security:
         - neosAuth:
-            - write
+            - updateStatus
+      operationId: updateUserStatus
       tags:
         - User Status
       parameters:
         - $ref: '#/components/parameters/UserID'
       responses:
         '200':
-          description: Success!
+          description: OK
         '403':
-          description: Forbidden!
+          $ref: '#/components/responses/403'
+  /api/userSessions:
+    summary: User Session Endpoint
+    post:
+      summary: Manage User Session
+      description: >
+        This endpoint does not follow proper **REST**ful design and handles
+        several operations.<br> <ul>
+          <li>Login</li>
+          <li>Password Reset</li>
+          <li>2FA (TOTP)</li>
+        </ul>
+      security:
+        - neosAuth:
+            - passwordReset
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/UsernameLoginCredentials'
+                - $ref: '#/components/schemas/UserIDLoginCredentials'
+                - $ref: '#/components/schemas/EmailLoginCredentials'
+                - $ref: '#/components/schemas/PasswordChangeCredentials'
+            examples:
+              Login With Username:
+                value:
+                  username: bombitmanbomb
+              Login With Email:
+                value:
+                  username: bombitmanbomb
+              Login With UserID:
+                value:
+                  ownerId: U-bombitmanbomb
+              Change Password:
+                value:
+                  recoverCode: M0OIUzkS02KBUh==
+                  password: Totally Legit Password
+      tags:
+        - Login
+        - Password Reset
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSession'
+        '400':
+          description: Invalid Credentials
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Invalid Credentials

@@ -9,4 +9,4 @@ properties:
   isPresent:
     type: boolean
   outputDevice:
-    $ref: './OutputDevice.yml'
+    $ref: './OutputDevice.yaml'

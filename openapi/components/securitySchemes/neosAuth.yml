@@ -1,4 +1,0 @@
-type: apiKey
-name: Authorization
-in: header
-description: Neos Authentication Token (neos UserID:SessionToken)

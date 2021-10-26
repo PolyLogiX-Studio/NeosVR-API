@@ -7,7 +7,7 @@ properties:
     type: string
     example: null
   correspondingWorldId:
-    $ref: './RecordId.yml'
+    $ref: './RecordId.yaml'
   tags:
     type: array
     items:
@@ -54,7 +54,7 @@ properties:
   sessionUsers:
     type: array
     items:
-      $ref: './SessionUser.yml'
+      $ref: './SessionUser.yaml'
   thumbnail:
     type: string
     example: 'https://operationaldata.neos.com/thumbnails/03b4223f-0b73-4f04-b95a-f6a9c93efea7-v2.webp'
@@ -85,4 +85,4 @@ properties:
     type: string
     format: date-time
   accessLevel:
-    $ref: './SessionAccessLevel.yml'
+    $ref: './SessionAccessLevel.yaml'

@@ -5,3 +5,4 @@ description: ID of the User
 schema:
   type: string
   example: U-bombitmanbomb
+  pattern: '^U-.+$'

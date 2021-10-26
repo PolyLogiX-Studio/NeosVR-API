@@ -1,7 +1,7 @@
 type: object
 properties:
   onlineStatus:
-    $ref: './OnlineStatus.yml'
+    $ref: './OnlineStatus.yaml'
   lastStatusChange:
     type: string
     format: date-time
@@ -9,7 +9,7 @@ properties:
     type: string
     example: 'S-f4981eeb-67ce-43e6-83bc-272010d51ae4'
   currentSessionAccessLevel:
-    $ref: './SessionAccessLevel.yml'
+    $ref: './SessionAccessLevel.yaml'
   currentSessionHidden:
     type: boolean
   currentHosting:
@@ -23,11 +23,11 @@ properties:
   publicRSAKey:
     type: string
   outputDevice:
-    $ref: './OutputDevice.yml'
+    $ref: './OutputDevice.yaml'
   isMobile:
     type: boolean
   activeSessions:
     type: array
     uniqueItems: true
     items:
-      $ref: './SessionInfo.yml'
+      $ref: './SessionInfo.yaml'

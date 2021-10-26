@@ -1,33 +1,35 @@
 summary: User Status Endpoint
-description: User Status Endpoint
 get:
-  summary: Get the status of a user
+  summary: Get User Status
+  description: DESCRIPTION
   security: []
+  operationId: getUserStatus
   tags:
     - User Status
   parameters:
-    - $ref: '../components/parameters/UserID.yml'
+    - $ref: '../components/parameters/UserID.yaml'
   responses:
     '200':
-      description: Success!
+      description: OK
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/UserStatus.yml'
+            $ref: '../components/schemas/UserStatus.yaml'
     '404':
-      $ref: '../components/responses/404.yml'
+      $ref: '../components/responses/404.yaml'
 
 put:
   summary: Update a user status
   security:
     - neosAuth:
-        - write
+        - updateStatus
+  operationId: updateUserStatus
   tags:
     - User Status
   parameters:
-    - $ref: '../components/parameters/UserID.yml'
+    - $ref: '../components/parameters/UserID.yaml'
   responses:
     '200':
-      description: Success!
+      description: OK
     '403':
-      description: Forbidden!
+      $ref: '../components/responses/403.yaml'

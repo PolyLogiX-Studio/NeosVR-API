@@ -2,9 +2,11 @@ type: object
 properties:
   recordId:
     type: string
+    pattern: '^R-[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$'
     example: R-6b26b0e4-95b0-4ff9-bc24-5efd791e8b4c
   ownerId:
     type: string
+    pattern: '^U-.+$'
     example: U-h33t
 required:
  - recordId

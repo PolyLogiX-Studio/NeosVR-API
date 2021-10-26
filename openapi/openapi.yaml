@@ -4,18 +4,21 @@ info:
   description: API Documentation for NeosVR
   version: '2.0'
   contact:
-    name: Neos
-    url: 'https://neos.com/'
+    name: Contribute to the Docs
+    url: 'https://github.com/PolyLogiX-Studio/NeosVR-API/'
   license:
     name: MIT
+    url: https://opensource.org/licenses/MIT
 servers:
   - url: 'https://api.neos.com'
 components:
   securitySchemes:
     neosAuth:
-      $ref: ./components/securitySchemes/neosAuth.yml
+      $ref: ./components/securitySchemes/neosAuth.yaml
 security:
   - neosAuth: []
 paths:
   '/api/users/{UserId}/status':
     $ref: 'paths/api@users@{UserId}@status.yaml'
+  '/api/userSessions':
+    $ref: 'paths/api@userSessions.yaml'
