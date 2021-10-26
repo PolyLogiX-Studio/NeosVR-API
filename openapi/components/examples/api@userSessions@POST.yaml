@@ -1,0 +1,18 @@
+Login With Username:
+  value:
+    username: bombitmanbomb
+    password: Totally Legit Password
+    rememberMe: true
+Login With Email:
+  value:
+    email: Legit@Email.com
+    password: Totally Legit Password
+    rememberMe: false
+Login With UserID:
+  value:
+    ownerId: U-bombitmanbomb
+    password: Totally Legit Password
+Change Password:
+  value:
+    recoverCode: M0OIUzkS02KBUh==
+    password: Totally Legit Password

@@ -21,19 +21,7 @@ post:
             - $ref: '../components/schemas/LoginCredentials/EmailLoginCredentials.yaml'
             - $ref: '../components/schemas/LoginCredentials/PasswordChangeCredentials.yaml'
         examples:
-          Login With Username:
-            value:
-              username: bombitmanbomb
-          Login With Email:
-            value:
-              username: bombitmanbomb
-          Login With UserID:
-            value:
-              ownerId: U-bombitmanbomb
-          Change Password:
-            value:
-              recoverCode: M0OIUzkS02KBUh==
-              password: Totally Legit Password
+          $ref: '../components/examples/api@userSessions@POST.yaml'
   tags:
     - Login
     - Password Reset
