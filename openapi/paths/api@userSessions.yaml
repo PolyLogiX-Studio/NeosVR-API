@@ -2,10 +2,10 @@ summary: User Session Endpoint
 post:
   summary: Manage User Session
   description: >
-    This endpoint does not follow proper **REST**ful design and handles several operations.<br>
+    This endpoint handles several operations.<br>
     <ul>
       <li>Login</li>
-      <li>Password Reset</li>
+      <li>Password Change (Recovery)</li>
       <li>2FA (TOTP)</li>
     </ul>
   security: [neosAuth: [passwordReset]]
