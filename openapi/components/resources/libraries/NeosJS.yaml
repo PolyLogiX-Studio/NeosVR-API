@@ -1,0 +1,10 @@
+x-displayName: Neos.js (JavaScript)
+description: |
+  |__Language__: | `JavaScript`|
+  |-|-|
+  |__Engines__:| `>= Node v12.0.0` |
+  |__Maintained__:| PolyLogiX Studio |
+  |__License__:| MIT |
+  |__Download__|[NPM](https://www.npmjs.com/package/@bombitmanbomb/neosjs)|
+
+   Neos.js is an Open Source library maintained by PolyLogiX Studio to interface with Neos's API using JavaScript/TypeScript

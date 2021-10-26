@@ -62,6 +62,8 @@ tags:
     description: Operations on the User Session
   - name: API Libraries
     description: API Libraries created by the Community
+  - name: Neos.js
+    $ref: './components/resources/libraries/NeosJS.yaml'
 x-tagGroups:
   - name: General
     tags:
@@ -71,6 +73,7 @@ x-tagGroups:
   - name: API Libraries
     tags:
       - API Libraries
+      - Neos.js
 paths:
   '/api/users/{UserId}/status':
     $ref: 'paths/api@users@{UserId}@status.yaml'
