@@ -1,5 +1,9 @@
 type: apiKey
 name: Authorization
 in: header
-description: >
-  Neos Authentication Token<br>**Format:** `"Authorization": "neos UserID:SessionToken"`
+description: |
+  Neos Authentication Token
+
+  Follows Bearer Token format with `Bearer` replaced with `neos`.
+
+  **Format:** `"Authorization": "neos UserID:SessionToken"`
