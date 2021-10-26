@@ -1,10 +1,29 @@
-openapi: 3.0.3
+openapi: 3.1.0
 info:
   title: NeosVR API
-  description: API Documentation for NeosVR
+  description: |
+    Documentation for NeosVR's API
+
+    This is a Community Run
+
+
+
+    # OpenAPI Specification
+    This API is documented in **OpenAPI format**.
+
+    # Cross-Origin Resource Sharing
+    This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/).
+    And that __Denies__ cross-domain communication from browsers.
+
+    # Rate Limiting
+
+    *Most* endpoints are Rate Limited. Exceeding rate limits will result in a `429 - Too Many Requests` response code.
+
+    All rated endpoints have the following headers to denote various info about it's limits:
+
   version: '2.0'
   contact:
-    name: Contribute to the Docs
+    name: Support and Contributing
     url: 'https://github.com/PolyLogiX-Studio/NeosVR-API/'
   license:
     name: MIT
@@ -17,6 +36,20 @@ components:
       $ref: ./components/securitySchemes/neosAuth.yaml
 security:
   - neosAuth: []
+tags:
+  - name: Login
+    description: |
+      Most endpoints require [Authentication](#section/Authentication) to access data. Thankfully logging in is fairly straightforward.
+  - name: User Status
+    description: Operations on the User Session
+  - name: Password Reset
+    description: Operations on the User Session
+x-tagGroups:
+  - name: General
+    tags:
+      - Login
+      - User Status
+      - Password Reset
 paths:
   '/api/users/{UserId}/status':
     $ref: 'paths/api@users@{UserId}@status.yaml'
