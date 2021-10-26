@@ -4,9 +4,13 @@ info:
   description: |
     Documentation for NeosVR's API
 
-    This is a Community Run
-
-
+    --------
+    >
+    > This is an **UNOFFICIAL** Community Run resource to help fellow developers interact with the NeosVR Api.
+    >
+    > If you find this resource helpful consider [Supporting us on Patreon](https://www.patreon.com/PolyLogiX_VR) to help with Hosting this Service and our other open source projects!
+    >
+    --------
 
     # OpenAPI Specification
     This API is documented in **OpenAPI format**.
