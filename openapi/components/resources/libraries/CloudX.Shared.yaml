@@ -1,0 +1,17 @@
+x-displayName: CloudX.Shared.dll (C#)
+description: |
+  |__Language__: | `C#`|
+  |-|-|
+  |__Engines__:| `.NET` |
+  |__Maintained__:| Solirax |
+  |__License__:| **Unknown*** |
+  |__Documentation__:|**N/A**|
+  |__Download__:|[Steam](https://store.steampowered.com/app/740250/Neos_VR/)|
+
+  The Core Library that NeosVR uses to communicate to CloudX
+
+  File Location: `<NeosInstall>\NeosVR\Neos_Data\Managed\CloudX.Shared.dll`
+
+  <br><br>
+
+  *CloudX.Shared is is modified on most updates and is not recomended on production projects
