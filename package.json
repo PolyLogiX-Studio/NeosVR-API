@@ -9,5 +9,8 @@
     "start": "openapi preview-docs",
     "build": "openapi bundle -o dist",
     "test": "openapi lint"
+  },
+  "engines": {
+    "node": ">=12"
   }
 }
