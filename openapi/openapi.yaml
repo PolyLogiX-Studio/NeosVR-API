@@ -10,14 +10,16 @@ info:
     >
     > If you find this resource helpful consider [Supporting us on Patreon](https://www.patreon.com/PolyLogiX_VR) to help with Hosting this Service and our other open source projects!
     >
+    > Compatability Tests Passed as of build `2021.10.26.9`
+    >
     --------
 
     # OpenAPI Specification
     This API is documented in **OpenAPI format**.
 
     # Cross-Origin Resource Sharing
-    This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with  [W3C spec](https://www.w3.org/TR/cors/).
-    And that __Denies__ cross-domain communication from browsers.
+    This API features Cross-Origin Resource Sharing (CORS) implemented in compliance with [W3C spec](https://www.w3.org/TR/cors/)
+    and currently __Denies__ cross-domain communication from browsers.
 
     # Rate Limiting
 
@@ -31,7 +33,7 @@ info:
     | X-Rate-Limit-Remaining | `Integer` | 10 | Amount of calls remaining before the server starts responding with code `429`. |
     | X-Rate-Limit-Reset | `String <Date-Time>` | 2021-10-26T04:01:32.0523331Z | DateTime when `X-Rate-Limit-Remaining` Resets. |
 
-    If the quota is Exceeded `429 - Too Many Requests` will be received with info on when you can attempt to call the api again.
+    If the quota is Exceeded or multiple commands are sent within a second `429 - Too Many Requests` will be received with info on when you can attempt to call the api again.
 
     | Header | Type | Example | Description |
     | ------ | ------ | ------ | ------ |
@@ -64,7 +66,7 @@ tags:
     description: API Libraries created by the Community
   - name: Neos.js
     $ref: './components/resources/libraries/NeosJS.yaml'
-  - name: CloudX.Shared.dll (Native)
+  - name: CloudX.Shared.dll
     $ref: './components/resources/libraries/CloudX.Shared.yaml'
 x-tagGroups:
   - name: General
@@ -76,7 +78,7 @@ x-tagGroups:
     tags:
       - API Libraries
       - Neos.js
-      - CloudX.Shared.dll (Native)
+      - CloudX.Shared.dll
 paths:
   '/api/users/{UserId}/status':
     $ref: 'paths/api@users@{UserId}@status.yaml'
