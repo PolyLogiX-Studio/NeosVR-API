@@ -60,12 +60,17 @@ tags:
     description: Operations on the User Session
   - name: Password Reset
     description: Operations on the User Session
+  - name: API Libraries
+    description: API Libraries created by the Community
 x-tagGroups:
   - name: General
     tags:
       - Login
       - User Status
       - Password Reset
+  - name: API Libraries
+    tags:
+      - API Libraries
 paths:
   '/api/users/{UserId}/status':
     $ref: 'paths/api@users@{UserId}@status.yaml'
