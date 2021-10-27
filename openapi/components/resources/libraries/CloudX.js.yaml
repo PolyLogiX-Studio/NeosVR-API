@@ -1,0 +1,12 @@
+x-displayName: CloudX.js (TypeScript)
+name: CloudX.js
+description: |
+  |__Language__: | `Typescript`|
+  |-|-|
+  |__Engines__:| `>= Node v12.0.0` |
+  |__Maintained__:| PolyLogiX Studio |
+  |__License__:| MIT |
+  |__Documentation__:|**N/A**|
+  |__Download__|[NPM](https://www.npmjs.com/package/@bombitmanbomb/cloudx)|
+
+   Neos.js is an Open Source library maintained by PolyLogiX Studio to interface with Neos's API using JavaScript/TypeScript

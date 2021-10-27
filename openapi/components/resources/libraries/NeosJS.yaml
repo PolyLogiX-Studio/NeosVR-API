@@ -6,6 +6,7 @@ description: |
   |__Engines__:| `>= Node v12.0.0` |
   |__Maintained__:| PolyLogiX Studio |
   |__License__:| MIT |
+  |__Documentation__:|[**Yes**](https://polylogix-studio.github.io/Neos.js/)|
   |__Download__|[NPM](https://www.npmjs.com/package/@bombitmanbomb/neosjs)|
 
-   Neos.js is an Open Source library maintained by PolyLogiX Studio to interface with Neos's API using JavaScript/TypeScript
+   Neos.js is an Open Source Bot Framework maintained by PolyLogiX Studio to interface with Neos's API using JavaScript/TypeScript

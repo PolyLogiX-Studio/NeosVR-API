@@ -68,6 +68,8 @@ tags:
     description: API Libraries created by the Community
   - name: Neos.js
     $ref: './components/resources/libraries/NeosJS.yaml'
+  - name: CloudX.js
+    $ref: './components/resources/libraries/CloudX.js.yaml'
   - name: CloudX.Shared.dll
     $ref: './components/resources/libraries/CloudX.Shared.yaml'
 x-tagGroups:
@@ -86,6 +88,7 @@ x-tagGroups:
     tags:
       - API Libraries
       - Neos.js
+      - CloudX.js
       - CloudX.Shared.dll
 paths:
   '/api/users':
