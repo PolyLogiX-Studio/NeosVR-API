@@ -12,3 +12,13 @@ referenceDocs:
     colors:
       primary:
         main: "#32329f"
+generateCodeSamples:
+  languages:
+    - lang: Node.js
+      label: Node.js
+    - lang: curl
+      label: curl
+    - lang: Python
+      label: Python
+    - lang: 'C#'
+      label: 'C#'
