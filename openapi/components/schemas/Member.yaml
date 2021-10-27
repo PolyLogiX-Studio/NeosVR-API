@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: string
+    pattern: '^U\-.+$'
+    example: 'U-Frooxius'
+  quotaBytes:
+    type: integer
+    default: -1
+  usedBytes:
+    type: integer
+  ownerId:
+    type: string
+    pattern: '^G\-.+$'
+    example: G-PolyLogiX
+    description: Group ID
+required:
+  - id
+  - ownerId
+readOnly:
+  - usedBytes

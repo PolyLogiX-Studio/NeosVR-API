@@ -1,0 +1,23 @@
+summary: Group Endpoint
+post:
+  summary: Create a Group
+  description: Create a new Group. This endpoint is limited to Neos Staff.
+  security: [neosAuth: [neosAdmin, loggedIn]]
+  operationId: createGroup
+  tags:
+    - Group
+  requestBody:
+    required: true
+    content:
+      appliction/json:
+        schema:
+          $ref: '../components/schemas/Group.yaml'
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Group.yaml'
+    '403':
+      $ref: '../components/responses/403.yaml'

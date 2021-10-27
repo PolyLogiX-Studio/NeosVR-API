@@ -1,0 +1,18 @@
+summary: Group Endpoint
+get:
+  summary: Get a Group
+  security: []
+  operationId: getGroup
+  tags:
+    - Group
+  parameters:
+    - $ref: '../components/parameters/GroupId.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Group.yaml'
+    '404':
+      $ref: '../components/responses/404.yaml'

@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: string
+    pattern: '^G\-.+$'
+    example: 'G-PolyLogiX'
+  adminUserId:
+    type: string
+    pattern: '^U\-.+$'
+    example: U-PolyLogiX-Studio
+  name:
+    type: string
+    example: PolyLogiX
+  quotaBytes:
+    type: integer
+    default: -1
+  usedBytes:
+    type: integer
+required:
+  - id
+readOnly:
+  - usedBytes

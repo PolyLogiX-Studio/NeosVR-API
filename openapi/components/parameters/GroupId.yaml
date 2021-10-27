@@ -1,0 +1,8 @@
+name: GroupId
+in: path
+required: true
+description: ID of the Group
+schema:
+  type: string
+  example: G-PolyLogiX
+  pattern: '^G\-.+$'

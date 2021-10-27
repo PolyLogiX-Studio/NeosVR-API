@@ -1,0 +1,43 @@
+summary: Group Endpoint
+get:
+  summary: Get All Group Members
+  security: []
+  operationId: getGroupMembers
+  tags:
+    - Member
+  parameters:
+    - $ref: '../components/parameters/GroupId.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/Member.yaml'
+    '404':
+      $ref: '../components/responses/404.yaml'
+post:
+  summary: Add Group Member
+  security: [ neosAuth: [groupAdmin]]
+  operationId: addGroupMembers
+  tags:
+    - Member
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/Member.yaml'
+  parameters:
+    - $ref: '../components/parameters/GroupId.yaml'
+  responses:
+    '201':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Member.yaml'
+    '404':
+      $ref: '../components/responses/404.yaml'

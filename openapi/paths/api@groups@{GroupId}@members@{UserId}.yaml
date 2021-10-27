@@ -1,0 +1,39 @@
+summary: Group Endpoint
+get:
+  summary: Get Group Member
+  security: []
+  operationId: getGroupMember
+  tags:
+    - Member
+  parameters:
+    - $ref: '../components/parameters/GroupId.yaml'
+    - $ref: '../components/parameters/UserID.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Member.yaml'
+    '404':
+      $ref: '../components/responses/404.yaml'
+delete:
+  summary: Remove Group Member
+  security: [neosAuth: [groupAdmin]]
+  operationId: deleteGroupMember
+  tags:
+    - Member
+  parameters:
+    - $ref: '../components/parameters/GroupId.yaml'
+    - $ref: '../components/parameters/UserID.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Member.yaml'
+    '403':
+      $ref: '../components/responses/403.yaml'
+    '404':
+      $ref: '../components/responses/404.yaml'

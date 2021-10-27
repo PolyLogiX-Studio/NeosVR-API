@@ -77,12 +77,19 @@ x-tagGroups:
       - Logout
       - User Status
       - Password Reset
+      - Membership
+  - name: Groups
+    tags:
+      - Group
+      - Member
   - name: API Libraries
     tags:
       - API Libraries
       - Neos.js
       - CloudX.Shared.dll
 paths:
+  '/api/users':
+    $ref: 'paths/api@users.yaml'
   '/api/users/requestlostpassword':
     $ref: 'paths/api@users@requestlostpassword.yaml'
   '/api/users/{UserId}/status':
@@ -91,5 +98,11 @@ paths:
     $ref: 'paths/api@userSessions.yaml'
   '/api/userSessions/{UserId}/{SessionToken}':
     $ref: 'paths/api@userSessions@{UserId}@{SessionToken}.yaml'
-  '/api/users':
-    $ref: 'paths/api@users.yaml'
+  '/api/groups':
+    $ref: 'paths/api@groups.yaml'
+  '/api/groups/{GroupId}':
+    $ref: 'paths/api@groups@{GroupId}.yaml'
+  '/api/groups/{GroupId}/members':
+    $ref: 'paths/api@groups@{GroupId}@members.yaml'
+  '/api/groups/{GroupId}/members/{UserId}':
+    $ref: 'paths/api@groups@{GroupId}@members@{UserId}.yaml'
