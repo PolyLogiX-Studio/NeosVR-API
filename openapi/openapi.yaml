@@ -86,3 +86,5 @@ paths:
     $ref: 'paths/api@users@{UserId}@status.yaml'
   '/api/userSessions':
     $ref: 'paths/api@userSessions.yaml'
+  '/api/users':
+    $ref: 'paths/api@users.yaml'

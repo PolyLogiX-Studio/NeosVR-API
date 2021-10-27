@@ -1,0 +1,63 @@
+summary: User Endpoint
+post:
+  summary: Register a new user
+  security: []
+  operationId: register
+  tags:
+    - Login
+    - Register
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/LoginCredentials/RegisterCredentials.yaml'
+        examples:
+          application/json:
+            value:
+              username: Real User
+              email: Real@Email.com
+              password: Totally Real Password
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                pattern: ^\U\-.+$
+              username:
+                type: string
+              normalizedUsername:
+                type: string
+                pattern: ^[a-z][0-9]$
+              email:
+                type: string
+                format: email
+              registrationDate:
+                type: string
+                format: date-time
+              verifyToken:
+                type: string
+              isVerified:
+                type: boolean
+              quotaBytes:
+                type: Integer
+                example: 1073741824
+              isLocked:
+                type: boolean
+              supressbanEvasion:
+                type: boolean
+              usedBytes:
+                type: Integer
+              2fa_login:
+                type: boolean
+              referralId:
+                type: string
+                maxLength: 3
+                minLength: 3
+    '400':
+      description: Bad Request
