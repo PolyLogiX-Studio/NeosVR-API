@@ -19,7 +19,7 @@ get:
       $ref: '../components/responses/404.yaml'
 
 put:
-  summary: Update a user status
+  summary: Update User Status
   security:
     - neosAuth:
         - updateStatus
