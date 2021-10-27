@@ -8,6 +8,7 @@ properties:
     type: integer
     default: -1
   usedBytes:
+    readOnly: true
     type: integer
   ownerId:
     type: string
@@ -17,5 +18,3 @@ properties:
 required:
   - id
   - ownerId
-readOnly:
-  - usedBytes
