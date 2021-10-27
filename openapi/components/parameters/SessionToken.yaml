@@ -1,0 +1,6 @@
+name: SessionToken
+in: path
+required: true
+description: Session Token
+schema:
+  type: string

@@ -24,14 +24,14 @@
           isVerified:
             type: boolean
           quotaBytes:
-            type: Integer
+            type: integer
             example: 1073741824
           isLocked:
             type: boolean
           supressbanEvasion:
             type: boolean
           usedBytes:
-            type: Integer
+            type: integer
           2fa_login:
             type: boolean
           referralId:

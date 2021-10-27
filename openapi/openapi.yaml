@@ -58,6 +58,8 @@ tags:
   - name: Login
     description: |
       Most endpoints require [Authentication](#section/Authentication) to access data. Thankfully logging in is fairly straightforward.
+  - name: Logout
+    description: Delete a Session Token
   - name: User Status
     description: Operations on the User Session
   - name: Password Reset
@@ -69,9 +71,10 @@ tags:
   - name: CloudX.Shared.dll
     $ref: './components/resources/libraries/CloudX.Shared.yaml'
 x-tagGroups:
-  - name: General
+  - name: User Account & Sessions
     tags:
       - Login
+      - Logout
       - User Status
       - Password Reset
   - name: API Libraries
@@ -86,5 +89,7 @@ paths:
     $ref: 'paths/api@users@{UserId}@status.yaml'
   '/api/userSessions':
     $ref: 'paths/api@userSessions.yaml'
+  '/api/userSessions/{UserId}/{SessionToken}':
+    $ref: 'paths/api@userSessions@{UserId}@{SessionToken}.yaml'
   '/api/users':
     $ref: 'paths/api@users.yaml'

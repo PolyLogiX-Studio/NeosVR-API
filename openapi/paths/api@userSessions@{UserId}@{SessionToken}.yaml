@@ -1,0 +1,18 @@
+summary: Logout
+delete:
+  summary: Logout
+  description: Delete the session token (Logout)
+  security: [ neosAuth: [loggedIn]]
+  operationId: logout
+  tags:
+    - Logout
+  parameters:
+    - $ref: '../components/parameters/UserID.yaml'
+    - $ref: '../components/parameters/SessionToken.yaml'
+  responses:
+    '200':
+      description: OK
+    '404':
+      $ref: '../components/responses/404.yaml'
+    '403':
+      $ref: '../components/responses/403.yaml'
