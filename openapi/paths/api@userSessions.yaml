@@ -32,10 +32,33 @@ post:
         application/json:
           schema:
             $ref: '../components/schemas/UserSession.yaml'
+          example:
+            userId: U-bombitmanbomb
+            token: V2-<Token>
+            created: 2021-10-27T00:26:15.4221298Z
+            expire: 2021-10-28T00:26:15.4221299Z
+            rememberMe: false
+            sourceIP: 0.0.0.0
+            partitionKey: ${userId}
+            rowKey: ${token}
+            timestamp: 2021-10-27T00:26:15.4421348+00:00
+            eTag: W/"datetime'2021-10-27T00%3A26%3A15.4421348Z'"
     '400':
       description: Invalid Credentials
       content:
-        text/plain:
+        application/json:
           schema:
             type: string
             example: Invalid Credentials
+patch:
+  summary: Extend Session
+  description: Extend the User Session Token
+  security: [neosAuth: [loggedIn]]
+  operationId: extendSession
+  tags:
+    - Login
+  responses:
+    '204':
+      description: No Content (Successfully Extended)
+    '403':
+      $ref: '../components/responses/403.yaml'
