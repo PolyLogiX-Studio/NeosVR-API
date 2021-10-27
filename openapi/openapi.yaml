@@ -80,6 +80,8 @@ x-tagGroups:
       - Neos.js
       - CloudX.Shared.dll
 paths:
+  '/api/users/requestlostpassword':
+    $ref: 'paths/api@users@requestlostpassword.yaml'
   '/api/users/{UserId}/status':
     $ref: 'paths/api@users@{UserId}@status.yaml'
   '/api/userSessions':
