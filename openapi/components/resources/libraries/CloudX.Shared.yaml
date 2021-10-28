@@ -3,7 +3,7 @@ name: CloudX.Shared.dll
 description: |
   |__Language__: | `C#`|
   |-|-|
-  |__Engines__:| `.NET` |
+  |__Engines__:| `.NET 4.6.2` |
   |__Maintained__:| Solirax |
   |__License__:| **Unknown*** |
   |__Documentation__:|**N/A**|
