@@ -73,17 +73,24 @@ tags:
   - name: CloudX.Shared.dll
     $ref: './components/resources/libraries/CloudX.Shared.yaml'
 x-tagGroups:
-  - name: User Account & Sessions
+  - name: User Session
     tags:
+      - Register
       - Login
       - Logout
       - User Status
       - Password Reset
-      - Membership
+  - name: Users
+    tags:
+      - User Search
   - name: Groups
     tags:
       - Group
       - Member
+      - Membership
+  - name: Cloud Variables
+    tags:
+      - noop
   - name: API Libraries
     tags:
       - API Libraries

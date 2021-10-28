@@ -1,5 +1,6 @@
 '200':
-  description: OK
+  description: User Successfully Registered. Account will be Disabled until authenticated via Email.
+  x-summary: OK
   content:
     application/json:
       schema:

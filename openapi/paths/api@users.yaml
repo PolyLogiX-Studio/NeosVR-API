@@ -4,7 +4,6 @@ post:
   security: []
   operationId: register
   tags:
-    - Login
     - Register
   requestBody:
     required: true
@@ -20,3 +19,17 @@ post:
               password: Totally Real Password
   responses:
     $ref: '../components/responses/api@users@POST.yaml'
+get:
+  summary: Search Users
+  security: []
+  operationId: userSearch
+  tags:
+    - User Search
+  parameters:
+    - name: name
+      in: query
+      required: true
+      description: User Identifier
+      schema:
+        type: string
+        example: bombitmanbomb
