@@ -1,0 +1,20 @@
+type: object
+properties:
+  iconUrl:
+    type: string
+  backgroundUrl:
+    type: string
+  tagline:
+    type: string
+  description:
+    type: string
+  profileWorldUrl:
+    type: string
+  showcaseItems:
+    type: array
+    items:
+      type: string
+  tokenOptOut:
+    type: array
+    items:
+      type: string

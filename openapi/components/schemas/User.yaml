@@ -1,0 +1,83 @@
+type: object
+properties:
+  id:
+    type: string
+    pattern: '^U\-.+$'
+    example: 'U-bombitmanbomb'
+  username:
+    type: string
+    example: bombitmanbomb
+  normalizedUsername:
+    type: string
+  alternateNormalizedNames:
+    type: array
+    items:
+      type: string
+  email:
+    type: string
+    description: Only Available if `Authorized`
+  registrationDate:
+    type: string
+    format: date-time
+  quotaBytes:
+    type: integer
+    default: -1
+  usedBytes:
+    type: integer
+    default: -1
+  isVerified:
+    type: boolean
+  accountBanExpiration:
+    nullable: true
+    type: string
+    format: date-time
+  publicBanExpiration:
+    nullable: true
+    type: string
+    format: date-time
+  publicBanType:
+    allOf:
+      - $ref: './PublicBanType.yaml'
+      - nullable: true
+  spectatorBanExpiration:
+    nullable: true
+    type: string
+    format: date-time
+  muteBanExpiration:
+    nullable: true
+    type: string
+    format: date-time
+  listingBanExpiration:
+    nullable: true
+    type: string
+    format: date-time
+  password:
+    type: string
+    format: password
+  recoverCode:
+    type: string
+  uniqueDeviceIDs:
+    type: array
+    items:
+      type: string
+  tags:
+    type: array
+    items:
+      type:string
+  patreonData:
+    $ref: './PatreonData.yaml'
+  credits:
+    type: object
+    additionalProperties:
+      type: number
+      format: decimal
+  NCRdepositAddress:
+    type: string
+  referralId:
+    type: string
+    maxLength: 3
+    minLength: 3
+  referrerUserId:
+    type: string
+  profile:
+    $ref: './Profile.yaml'

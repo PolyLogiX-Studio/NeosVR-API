@@ -22,7 +22,7 @@ post:
 get:
   summary: Search Users
   security: []
-  operationId: userSearch
+  operationId: searchUsers
   tags:
     - User Search
   parameters:
@@ -33,3 +33,5 @@ get:
       schema:
         type: string
         example: bombitmanbomb
+  responses:
+    $ref: '../components/responses/api@users@GET.yaml'

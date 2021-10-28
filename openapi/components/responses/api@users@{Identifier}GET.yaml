@@ -1,0 +1,10 @@
+'200':
+  description: OK
+  content:
+    application/json:
+      schema:
+        oneOf:
+          - $ref: '../schemas/User.yaml'
+          - $ref: '../schemas/User-NoAuth.yaml'
+'400':
+  description: Bad Request

@@ -1,0 +1,24 @@
+summary: User Status Endpoint
+get:
+  summary: Get User
+  description: DESCRIPTION
+  security: []
+  operationId: getUser
+  tags:
+    - User Search
+  parameters:
+    - name: Identifier
+      in: path
+      required: true
+      schema:
+        type: string
+      description: User Identifier, username or userId.
+    - name: byUsername
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: false
+      description: Is the identifier a Username?
+  responses:
+    $ref: '../components/responses/api@users@{Identifier}GET.yaml'

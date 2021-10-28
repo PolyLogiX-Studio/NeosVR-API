@@ -88,6 +88,9 @@ x-tagGroups:
       - Group
       - Member
       - Membership
+  - name: Records
+    tags:
+      - noop
   - name: Cloud Variables
     tags:
       - noop
@@ -116,3 +119,5 @@ paths:
     $ref: 'paths/api@groups@{GroupId}@members.yaml'
   '/api/groups/{GroupId}/members/{UserId}':
     $ref: 'paths/api@groups@{GroupId}@members@{UserId}.yaml'
+  '/api/users@{Identifier}':
+    $ref: 'paths/api@users@{Identifier}.yaml'
