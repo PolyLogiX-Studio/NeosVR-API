@@ -1,0 +1,7 @@
+type: string
+enum:
+  - directory
+  - object
+  - texture
+  - audio
+  - link

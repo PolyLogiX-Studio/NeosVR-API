@@ -16,8 +16,10 @@ properties:
   sessionId:
     type: string
     example: S-f4981eeb-67ce-43e6-83bc-272010d51ae4
+    format: uuid
   normalizedSessionId:
     type: string
+    format: uuid
     example: s-f4981eeb-67ce-43e6-83bc-272010d51ae4
     readOnly: true
   hostUserId:
@@ -30,6 +32,7 @@ properties:
     example: bombitmanbomb
   compatibilityHash:
     type: string
+    format: byte
     example: VRk5owzoWaGQFaNQbKGUJw==
   universeId:
     type: string
@@ -42,6 +45,7 @@ properties:
     type: array
     items:
       type: string
+      format: uri
       example: "lnl-nat:///S-f4981eeb-67ce-43e6-83bc-272010d51ae4"
   parentSessionIds:
     type: array

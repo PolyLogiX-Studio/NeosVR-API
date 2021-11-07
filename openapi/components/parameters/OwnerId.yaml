@@ -1,0 +1,8 @@
+name: OwnerId
+in: path
+required: true
+description: Owner ID
+schema:
+  oneOf:
+    - $ref: './GroupIdSchema.yaml'
+    - $ref: './UserIDSchema.yaml'

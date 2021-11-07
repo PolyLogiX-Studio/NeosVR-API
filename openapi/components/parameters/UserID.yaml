@@ -3,6 +3,4 @@ in: path
 required: true
 description: ID of the User
 schema:
-  type: string
-  example: U-bombitmanbomb
-  pattern: '^U\-.+$'
+  $ref: './UserIDSchema.yaml'

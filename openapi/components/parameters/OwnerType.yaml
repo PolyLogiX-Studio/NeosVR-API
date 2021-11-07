@@ -1,0 +1,9 @@
+name: OwnerType
+in: path
+required: true
+description: Owner Type
+schema:
+  type: string
+  enum:
+    - users
+    - groups

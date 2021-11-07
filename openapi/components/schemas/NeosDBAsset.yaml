@@ -1,0 +1,8 @@
+type: object
+properties:
+  hash:
+    type: string
+    format: byte
+  bytes:
+    type: integer
+    format: int64

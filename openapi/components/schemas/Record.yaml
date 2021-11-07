@@ -1,0 +1,72 @@
+type: object
+properties:
+  id:
+    type: string
+    pattern: '^R-.+$'
+  ownerId:
+    type: string
+    pattern: ^[RG]-.+$
+  assetUri:
+    type: string
+    format: uri
+  globalVersion:
+    type: integer
+  localVersion:
+    type: integer
+  lastModifyingUserId:
+    type: string
+    pattern: '^U-.+$'
+  lastModifyingMachineId:
+    type: string
+  name:
+    type: string
+  description:
+    type: string
+  recordType:
+    $ref: './RecordType.yaml'
+  ownerName:
+    type: string
+  tags:
+    type: array
+    items:
+      type: string
+  path:
+    type: string
+  thumbnailUri:
+    type: string
+    format: uri
+  lastModificationTime:
+    type: string
+    format: date-time
+  creationTime:
+    type: string
+    format: date-time
+    nullable: true
+  firstPublishTime:
+    type: string
+    format: date-time
+    nullable: true
+  isPublic:
+    type: boolean
+  isForPatrons:
+    type: boolean
+  isListed:
+    type: boolean
+  visits:
+    type: integer
+    format: int32
+  rating:
+    type: number
+    format: double
+  randomOrder:
+    type: Integer
+    format: int32
+  submissions:
+    type: array
+    items:
+      $ref: './Submission.yaml'
+  neosDBmanifest:
+    type: array
+    items:
+      $ref: './NeosDBAsset.yaml'
+  

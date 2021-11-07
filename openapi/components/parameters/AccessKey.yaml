@@ -1,0 +1,6 @@
+name: accessKey
+in: query
+required: false
+schema:
+  type: string
+description: Limited Use Access Key

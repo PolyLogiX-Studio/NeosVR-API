@@ -1,0 +1,24 @@
+summary: Record Endpoint
+parameters:
+  - $ref: '../components/parameters/OwnerType.yaml'
+  - $ref: '../components/parameters/OwnerId.yaml'
+  - $ref: '../components/parameters/RecordId.yaml'
+  - $ref: '../components/parameters/AccessKey.yaml'
+get:
+  summary: Get Record
+  description: Get a Record
+  security: []
+  operationId: getRecord
+  tags:
+    - Records
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Record.yaml'
+    '403':
+      $ref: '../components/responses/403.yaml'
+    '404':
+      $ref: '../components/responses/404.yaml'

@@ -1,0 +1,23 @@
+type: object
+properties:
+  id:
+    type: string
+  ownerId:
+    type: string
+  targetRecordId:
+    $ref: './RecordId.yaml'
+  submissionTime:
+    type: string
+    format: date-time
+  submittedById:
+    type: string
+  submittedByName:
+    type: string
+  featured:
+    type: boolean
+  featuredByUserId:
+    type: string
+  featuredTimestamp:
+    type: string
+    format: date-time
+    nullable: true

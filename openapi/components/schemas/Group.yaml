@@ -2,11 +2,11 @@ type: object
 properties:
   id:
     type: string
-    pattern: '^G\-.+$'
+    pattern: '^G-.+$'
     example: 'G-PolyLogiX'
   adminUserId:
     type: string
-    pattern: '^U\-.+$'
+    pattern: '^U-.+$'
     example: U-PolyLogiX-Studio
   name:
     type: string

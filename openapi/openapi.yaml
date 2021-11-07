@@ -90,7 +90,7 @@ x-tagGroups:
       - Membership
   - name: Records
     tags:
-      - noop
+      - Records
   - name: Cloud Variables
     tags:
       - noop
@@ -126,3 +126,7 @@ paths:
     $ref: 'paths/api@users@{Identifier}.yaml'
   '/install/Pro/Public':
     $ref: 'paths/api@Pro@Public.yaml'
+  '/api/{OwnerType}/{OwnerId}/records/{RecordId}':
+    $ref: 'paths/api@{OwnerType}@{OwnerId}@records@{RecordId}.yaml'
+  '/api/{OwnerType}/{OwnerId}/records/root/{path}':
+    $ref: 'paths/api@{OwnerType}@{OwnerId}@records@root@{path}.yaml'

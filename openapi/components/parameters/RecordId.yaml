@@ -1,0 +1,7 @@
+name: RecordId
+in: path
+required: true
+description: Record ID
+schema:
+  type: string
+  pattern: ^R-.+$

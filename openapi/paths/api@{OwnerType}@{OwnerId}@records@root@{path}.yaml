@@ -1,0 +1,28 @@
+summary: Record Endpoint
+parameters:
+  - $ref: '../components/parameters/OwnerType.yaml'
+  - $ref: '../components/parameters/OwnerId.yaml'
+  - name: path
+    in: path
+    schema:
+      type: string
+    required: true
+  - $ref: '../components/parameters/AccessKey.yaml'
+get:
+  summary: Get Record at Path
+  description: Get a Record at a specific Path
+  security: []
+  operationId: getRecordAtPath
+  tags:
+    - Records
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Record.yaml'
+    '403':
+      $ref: '../components/responses/403.yaml'
+    '404':
+      $ref: '../components/responses/404.yaml'

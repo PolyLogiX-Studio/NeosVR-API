@@ -13,9 +13,14 @@ get:
     '200':
       description: OK
       content:
+        text/plain:
+          schema:
+            type: string
+          example: 2021.11.5.486
         application/json:
           schema:
             type: string
+          example: 2021.11.5.486
   servers:
     - url: https://cloudxstorage.blob.core.windows.net/
       description: CloudX Storage Blob
