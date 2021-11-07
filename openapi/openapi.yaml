@@ -94,6 +94,9 @@ x-tagGroups:
   - name: Cloud Variables
     tags:
       - noop
+  - name: Extra
+    tags:
+      - Utility
   - name: API Libraries
     tags:
       - API Libraries
@@ -121,3 +124,5 @@ paths:
     $ref: 'paths/api@groups@{GroupId}@members@{UserId}.yaml'
   '/api/users@{Identifier}':
     $ref: 'paths/api@users@{Identifier}.yaml'
+  '/install/Pro/Public':
+    $ref: 'paths/api@Pro@Public.yaml'

@@ -1,0 +1,21 @@
+summary: Versioning
+get:
+  summary: Fetch Latest Version
+  description: |
+    Get the latest Build number. Usefull for Auto-Updaters
+
+    Uses CloudX Storage Blob Server
+  security: []
+  operationId: getVersion
+  tags:
+    - Utility
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: string
+  servers:
+    - url: https://cloudxstorage.blob.core.windows.net/
+      description: CloudX Storage Blob
