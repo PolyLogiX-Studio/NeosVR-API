@@ -22,3 +22,45 @@ get:
       $ref: '../components/responses/403.yaml'
     '404':
       $ref: '../components/responses/404.yaml'
+delete:
+  summary: Delete Record
+  description: Remove a Record
+  security: []
+  operationId: deleteRecord
+  tags:
+    - Records
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Record.yaml'
+    '403':
+      $ref: '../components/responses/403.yaml'
+    '404':
+      $ref: '../components/responses/404.yaml'
+put:
+  summary: Upsert Record
+  description: Update a Record
+  security: []
+  operationId: upsertRecord
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/Record.yaml'
+  tags:
+    - Records
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/Record.yaml'
+    '403':
+      $ref: '../components/responses/403.yaml'
+    '404':
+      $ref: '../components/responses/404.yaml'
