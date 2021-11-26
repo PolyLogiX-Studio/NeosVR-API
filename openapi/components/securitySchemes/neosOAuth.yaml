@@ -1,0 +1,15 @@
+type: oauth2
+name: Neos OAuth
+description: |
+  Neos OAuth Token
+
+  It is currently Very difficult to get an API key, and this api is Very work in progress.
+
+  Uses `auth.neos.com`.
+  Little is known about this server.
+flows:
+  authorizationCode:
+    scopes:
+      profile: Grant read-only access to the account and user info only
+    tokenUrl: https://auth.neos.com/connect/token
+    authorizationUrl: https://auth.neos.com/connect/authorize

@@ -50,10 +50,14 @@ info:
 servers:
   - url: 'https://api.neos.com'
     description: CloudX Api
+  - url: 'https://auth.neos.com'
+    description: CloudX OAuth Api
 components:
   securitySchemes:
     neosAuth:
       $ref: ./components/securitySchemes/neosAuth.yaml
+    neosOAuth:
+      $ref: ./components/securitySchemes/neosOAuth.yaml
 security:
   - neosAuth: []
 tags:
@@ -66,6 +70,8 @@ tags:
     description: Operations on the User Session
   - name: Password Reset
     description: Operations on the User Session
+  - name: OAuth
+    description: OAuth Endpoints
   - name: API Libraries
     description: API Libraries created by the Community
   - name: Neos.js
@@ -99,6 +105,7 @@ x-tagGroups:
   - name: Extra
     tags:
       - Utility
+      - OAuth
   - name: API Libraries
     tags:
       - API Libraries
@@ -132,3 +139,5 @@ paths:
     $ref: 'paths/api@{OwnerType}@{OwnerId}@records@{RecordId}.yaml'
   '/api/{OwnerType}/{OwnerId}/records/root/{path}':
     $ref: 'paths/api@{OwnerType}@{OwnerId}@records@root@{path}.yaml'
+  '/api/user/profile':
+    $ref: 'paths/api@user@profile.yaml'

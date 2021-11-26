@@ -1,0 +1,13 @@
+summary: User OAuth Endpoint
+get:
+  summary: Get User Profile
+  servers:
+  - url: 'https://auth.neos.com'
+    description: CloudX OAuth Api
+  security:
+    - neosOAuth: [profile]
+  operationId: OAuthGetProfile
+  tags:
+    - OAuth
+  responses:
+    $ref: '../components/responses/api@users@{Identifier}GET.yaml'
