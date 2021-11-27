@@ -10,6 +10,8 @@ description: |
 flows:
   authorizationCode:
     scopes:
-      profile: Grant read-only access to the account and user info only
+      profile: Enables you to obtain profile information such as a User's username, profile image etc.
+      email: Enables you to see the User's email in the profile response.
+      patreon: Provides the user's Patreon information in the profile response.
     tokenUrl: https://auth.neos.com/connect/token
     authorizationUrl: https://auth.neos.com/connect/authorize
